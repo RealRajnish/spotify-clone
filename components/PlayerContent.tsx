@@ -5,7 +5,8 @@ import { BsPauseFill, BsPlayFill } from "react-icons/bs";
 import { AiFillStepBackward, AiFillStepForward } from "react-icons/ai";
 import { HiSpeakerWave, HiSpeakerXMark } from "react-icons/hi2";
 import { useEffect, useState } from "react";
-import useSound from "use-sound";
+// import useSound from "use-sound";
+import { Howl, Howler } from "howler";
 
 import MediaItem from "./MediaItem";
 import LikeButton from "./LikeButton";
@@ -53,29 +54,48 @@ const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
     player.setId(previousSong);
   };
 
-  const [play, { pause, sound }] = useSound(songUrl, {
-    volume: volume,
-    onplay: () => setIsPlaying(true),
-    onend: () => {
+  // const [play, { pause, sound }] = useSound(songUrl, {
+  //   volume: volume,
+  //   onplay: () => setIsPlaying(true),
+  //   onend: () => {
+  //     setIsPlaying(false);
+  //     onPlayNext();
+  //   },
+  //   onpause: () => setIsPlaying(false),
+  //   format: ["mp3"],
+  // });
+
+  const sound = new Howl({
+    src: [songUrl],
+    html5: true,
+    autoplay: false,
+    onend: function () {
       setIsPlaying(false);
       onPlayNext();
     },
-    onpause: () => setIsPlaying(false),
-    format: ["mp3"],
+    volume: volume,
+    onplay: function () {
+      setIsPlaying(true);
+    },
   });
+  Howler.volume(volume);
 
   useEffect(() => {
-    sound?.play();
+    sound.play();
     return () => {
-      sound?.unload();
+      sound.unload();
     };
-  }, [sound]);
+  }, [songUrl]);
 
   const handlePlay = () => {
     if (!isPlaying) {
-      play();
+      console.log(sound.playing(), "play");
+      sound.play();
+      setIsPlaying(true);
     } else {
-      pause();
+      Howler.stop();
+      console.log(sound.playing(), "pause");
+      setIsPlaying(false);
     }
   };
 
