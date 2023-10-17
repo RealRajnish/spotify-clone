@@ -7,6 +7,7 @@ interface BoxProps {
 
 const Box: React.FC<BoxProps> = ({ children, classname }) => {
   return (
+    // a special div with some predefined classes and ability to merge more
     <div
       className={twMerge(
         `
