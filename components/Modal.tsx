@@ -71,6 +71,7 @@ const Modal: React.FC<ModalProps> = ({
             {description}
           </Dialog.Description>
           <div>{children}</div>
+          {/* asChild : it prevents default DOM rendering and render our custom HTML or DOM Element (in this example button) */}
           <Dialog.Close asChild>
             <button
               className="
