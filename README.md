@@ -8,8 +8,13 @@ A brief description of what this project does and who it's for
 
 ### Testing
 test user credentials:
-email: xilivij996@scubalm.com
+email: nobayi9737@wermink.com
 password: abcd1234
+
+For Payment use card no. 4242 4242 4242 4242 with any random values
+
+![Capturei](https://github.com/RealRajnish/spotify-clone/assets/61611447/be09eedf-c80f-47e7-961e-6ea1ac952e4b)
+
 
 Do Check it !
 

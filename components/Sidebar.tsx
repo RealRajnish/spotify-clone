@@ -18,7 +18,7 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ children, songs }) => {
-  const pathname = usePathname();
+  const pathname = usePathname(); // returns pathname
   const player = usePlayer();
 
   const routes = useMemo(
@@ -39,6 +39,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children, songs }) => {
     [pathname]
   );
   return (
+    // main parent container for all stuff above player
     <div
       className={twMerge(
         `
@@ -48,6 +49,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children, songs }) => {
         player.activeId && "h-[calc(100%-80px)]"
       )}
     >
+      {/* main sidebar div for sidebar items  */}
       <div className="hidden md:flex flex-col gap-y-2 bg-black h-full w-[300px] p-2">
         <Box>
           <div className="flex flex-col gap-y-4 px-5 py-4">

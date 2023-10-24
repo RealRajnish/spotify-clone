@@ -17,6 +17,7 @@ const AuthModal = () => {
   const { session } = useSessionContext();
   const { onClose, isOpen } = useAuthModal();
 
+  // closes the authModel immediately after session established and refresh page
   useEffect(() => {
     if (session) {
       router.refresh();
@@ -38,7 +39,7 @@ const AuthModal = () => {
     >
       <Auth
         theme="dark"
-        providers={["github"]}
+        providers={["github", "google"]}
         magicLink
         supabaseClient={supabaseClient}
         appearance={{
