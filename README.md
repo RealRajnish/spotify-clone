@@ -6,6 +6,11 @@ A brief description of what this project does and who it's for
 
 [Live Demo - Hosted on vercel](http://spotify-clone-rj.vercel.app/)
 
+### Testing
+test user credentials:
+email: xilivij996@scubalm.com
+password: abcd1234
+
 Do Check it !
 
 ## Installation
