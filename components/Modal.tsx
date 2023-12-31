@@ -38,7 +38,7 @@ const Modal: React.FC<ModalProps> = ({
         max-h-full
         h-full
         md:h-auto
-        md:max-h-[85vh]
+        md:max-h-[90vh]
         w-full
         md:w-[90vw]
         md:max-w-[450px]
@@ -55,7 +55,7 @@ const Modal: React.FC<ModalProps> = ({
             text-xl
             text-center
             font-bold
-            mb-4
+            mb-2
             "
           >
             {title}
